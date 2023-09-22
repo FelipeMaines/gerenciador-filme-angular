@@ -1,0 +1,49 @@
+<div class="container d-grid my-4 gap-3">
+
+    <div class="d-flex justify-content-between">
+        <div>
+            <h1>{{detalhe.filme.title}}</h1>
+        </div>
+
+        <div>
+            <p>{{detalhe.vote_count}}</p>
+            <i class="bi bi-heart-fill fs-2 font-primary" (click)="AdicionarFavoritos(detalhe.filme.id)"></i>
+        </div>
+    </div>
+
+    <p class="fw-bold date">{{detalhe.release_date}}</p>
+
+    <div class="row ">
+
+        <div class="col-lg-3">
+            <img src="{{detalhe.filme.poster_path}}" alt="" class="img-fluid rounded-3">
+        </div>
+
+        <div class="col-lg-9">
+            <Iframe class="rounded-3" id="iframeTrailer" [src]="link | safeUrl"  frameborder="0" allowfullscreen width="100%" height="100%"></Iframe>
+        </div>
+    </div>
+
+    <div class="container d-flex gap-2">
+        <div *ngFor="let genero of generos" class="">
+            <button type="button" class="btn btn-lg btn-primary" disabled>{{detalhe.genres}}</button>
+        </div>
+    </div>
+
+    <div class="container d-flex">
+        <p class="fs-4 fw-bold">{{detalhe.overview}}</p>
+    </div>
+</div>
+
+<div class="container">
+
+    <div class="">
+        <h1 class="fw-bold">Diretor:</h1>
+        <p></p>
+    </div>
+
+    <div *ngFor="let autor">
+        <p></p>
+    </div>
+
+</div>

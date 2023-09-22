@@ -1,0 +1,48 @@
+<div class="container d-flex flex-row justify-content-center gap-5 my-3">
+    <a (click)="FiltrarFilme('popular')" class="link-offset-2 link-underline link-underline-opacity-0 fs-2 border-bottom border-secondary  text-dark fw-bold">
+        Mais Populares
+    </a>
+
+    <a (click)="FiltrarFilme('favoritos')" class="link-offset-2 link-underline link-underline-opacity-0 border-bottom border-secondary fs-2 text-dark fw-bold">
+        Meus Favoritos
+    </a>
+
+    <a (click)="FiltrarFilme('top_rated')" class="link-offset-2 link-underline link-underline-opacity-0 fs-2  border-bottom border-secondary text-dark fw-bold">
+        Mais vistos
+    </a>
+</div>
+
+<div class="container">
+    <nav aria-label="Page navigation example">
+      <ul class="pagination">
+        <li class="page-item">
+          <a class="page-link" aria-label="Previous" (click)="previousPage()">
+            <span aria-hidden="true">&laquo;</span>
+          </a>
+        </li>
+        
+        <li class="page-item" *ngFor="let page of totalPages; let i = index">
+          <a class="page-link" (click)="MudarPagina(i + 1)">{{ i + 1 }}</a>
+        </li>
+
+        <li class="page-item">
+          <a class="page-link" aria-label="Next" (click)="nextPage()">
+            <span aria-hidden="true">&raquo;</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+
+
+<div class="container mt-3">
+    <div class="row ">
+        <div *ngFor="let filme of filmes" class="col-6 col-md-4 col-lg-2">
+            <app-card-filme [filme]="filme"></app-card-filme>
+        </div>
+    </div>
+</div>
+
+
+
+
