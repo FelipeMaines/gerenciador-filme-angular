@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { withDebugTracing } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { Filme } from 'src/app/models/filme';
 import { ServicoFilme } from 'src/app/services/servico-filme';
 import { ServicoLocalStorage } from 'src/app/services/servico-local-storage';
@@ -16,7 +17,7 @@ export class ListarFilmeComponent implements OnInit {
   currentPage: number = 1;
   genero: string = '';
 
-  constructor(private servicoFilme: ServicoFilme, private servicoLocalStorage: ServicoLocalStorage) {}
+  constructor(private servicoFilme: ServicoFilme, private servicoLocalStorage: ServicoLocalStorage, private toaster: ToastrService) {}
 
   FiltrarFilme(chave: string) {
     this.genero = chave;
@@ -41,11 +42,11 @@ export class ListarFilmeComponent implements OnInit {
   }
 
   previousPage(): any{
-    this.currentPage > 1 ? this.MudarPagina(this.currentPage -1) : console.log("Nao eh possivel");
+    this.currentPage > 1 ? this.MudarPagina(this.currentPage -1) : this.toaster.error("Nao foi possivel voltar de página");
   }
 
   nextPage(){
-    this.currentPage < 30 ? this.MudarPagina(this.currentPage + 1) : console.log("Nao eh possivel");
+    this.currentPage < 30 ? this.MudarPagina(this.currentPage + 1) : this.toaster.error("Nao foi possivel ir para proxima página");
 
   }
   SelecionarFilmesPorId(arrayId: number[]){

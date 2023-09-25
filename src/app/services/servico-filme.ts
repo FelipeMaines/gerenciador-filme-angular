@@ -55,5 +55,10 @@ export class ServicoFilme {
     PegarKeyTrailerFilmePorId(id: number){
         return this.http.get<any>(`https://api.themoviedb.org/3/movie/${id}/videos`, ObterHeaderAutorizacao())
     }
+
+    PesquisarFilmes(nomeFilme: string){
+        return this.http.get<any>(`https://api.themoviedb.org/3/search/movie?query=${nomeFilme}`, ObterHeaderAutorizacao())
+        
+    }
 }
 

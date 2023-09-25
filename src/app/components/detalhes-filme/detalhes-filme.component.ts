@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { ActivatedRoute, ParamMap } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { switchMap } from 'rxjs/operators';
 import { DetalhesFilme } from 'src/app/models/detalhe-fime';
 import { Filme } from 'src/app/models/filme';
@@ -22,11 +23,13 @@ export class DetalhesFilmeComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private servicoFilme: ServicoFilme,
-    private servicoLocal: ServicoLocalStorage
+    private servicoLocal: ServicoLocalStorage,
+    private toaster: ToastrService,
   ) {}
 
   AdicionarFavoritos(id: number){
     this.servicoLocal.adicionarFilmeFavorito(id);
+    this.toaster.success("Filme adicionado aos favoritos!", "Sucesso")
   }
 
   ngOnInit(): void {
