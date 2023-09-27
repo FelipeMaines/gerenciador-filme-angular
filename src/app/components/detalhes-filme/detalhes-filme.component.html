@@ -1,17 +1,21 @@
 <div class="container">
 
-    <div class="d-flex justify-content-between">
+    <div class="d-flex justify-content-between gap-2 mt-3 mb-3">
         <div>
-            <h1>{{detalhe.filme.title}}</h1>
+            <h1 class="text-warning">{{detalhe.filme.title}}</h1>
         </div>
 
         <div>
-            <p>{{detalhe.vote_count}}</p>
-            <i class="bi bi-heart-fill fs-2 font-primary" (click)="AdicionarFavoritos(detalhe.filme.id)"></i>
+            <!-- <p class="text-white">{{detalhe.vote_count}}</p> -->
+            <button class="btn btn-light text-dark d-flex align-items-center gap-3" (click)="AdicionarFavoritos(detalhe.filme.id)">
+                {{ favorito ? 'Remover dos favoritos' : 'Adicionar aos favoritos' }}
+                <i class="bi bi-heart-fill fs-2 text-warning" *ngIf="favorito"></i>
+                <i class="bi bi-heart-fill fs-2 text-dark" *ngIf="!favorito"></i>
+            </button>
         </div>
     </div>
 
-    <p class="fw-bold date">{{detalhe.release_date}}</p>
+    <p class="fw-bold date text-white" >{{detalhe.release_date}}</p>
 
     <div class="row ">
 
@@ -24,13 +28,19 @@
         </div>
     </div>
 
-    <div class="container d-flex gap-2">
-        <div *ngFor="let genero of generos" class="">
-            <button type="button" class="btn btn-lg btn-primary" disabled>{{detalhe.genres}}</button>
+    <div class="container d-flex gap-2 mt-2">
+        <div *ngFor="let genero of detalhe.genres" class="">
+            <button type="button" class="btn btn-lg btn-warning" disabled>{{genero.name}}</button>
         </div>
     </div>
 
-    <div class="container d-flex">
-        <p class="fs-4 fw-bold">{{detalhe.overview}}</p>
+    <div class="container d-flex mt-2">
+        <p class="fs-4 fw-bold text-white">{{detalhe.overview}}</p>
+    </div>
+
+    <div class="row">
+        <div *ngFor="let credito of creditosFilmes" class="col-6 col-md-4 col-lg-2 gap-5">
+            <app-creditos-filme [credito]="credito"></app-creditos-filme>
+        </div>
     </div>
 </div>

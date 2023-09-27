@@ -1,13 +1,15 @@
 export class CreditosFilme {
-    diretor: string;
-    escritores: string[];
-    elenco: string[];
-    departament: string;
+    
+    character: string;
+    name: string;
+    profile_path: string
+    filme_id: number
 
-    constructor(Diretor: string, Escritores: string[], Elenco: string[], departament: string){
-        this.diretor = Diretor;
-        this.escritores = Escritores;
-        this.elenco = Elenco;
-        this.departament = departament;
+    constructor(Character: string, Name: string, Profile_Path: string, filme_id: number)
+    {
+        this.character = Character;
+        this.name = Name;
+        this.profile_path = Profile_Path;
+        this.filme_id = filme_id;
     }
 }

@@ -1,14 +1,14 @@
 <div class="container-fluid">
   <div class="container d-flex flex-row justify-content-center  gap-5 my-3">
-    <a (click)="FiltrarFilme('popular')" class="link-offset-2 link-underline link-underline-opacity-0 fs-2 border-bottom border-secondary  text-dark fw-bold">
+    <a (click)="FiltrarFilme('popular')" class="link-offset-2 link-underline link-underline-opacity-0 fs-2 border-bottom border-secondary text-warning fw-bold cursor-pointer" id="generoEscolha">
         Mais Populares
     </a>
 
-    <a (click)="FiltrarFilme('favoritos')" class="link-offset-2 link-underline link-underline-opacity-0 border-bottom border-secondary fs-2 text-dark fw-bold">
+    <a (click)="FiltrarFilme('favoritos')" class="link-offset-2 link-underline link-underline-opacity-0 border-bottom border-secondary fs-2 text-warning fw-bold cursor-pointer" id="generoEscolha">
         Meus Favoritos
     </a>
 
-    <a (click)="FiltrarFilme('top_rated')" class="link-offset-2 link-underline link-underline-opacity-0 fs-2  border-bottom border-secondary text-dark fw-bold">
+    <a (click)="FiltrarFilme('top_rated')" class="link-offset-2 link-underline link-underline-opacity-0 fs-2  border-bottom border-secondary text-warning fw-bold cursor-pointer" id="generoEscolha">
         Mais vistos
     </a>
     <div class="d-flex align-items-center">
@@ -20,17 +20,17 @@
     <nav aria-label="Page navigation example">
       <ul class="pagination">
         <li class="page-item">
-          <a class="page-link" aria-label="Previous" (click)="previousPage()">
+          <a class="page-link" aria-label="Previous" (click)="previousPage()" id="generoEscolha">
             <span aria-hidden="true">&laquo;</span>
           </a>
         </li>
         
         <li class="page-item" *ngFor="let page of totalPages; let i = index">
-          <a class="page-link" (click)="MudarPagina(i + 1)">{{ i + 1 }}</a>
+          <a class="page-link text-dark" (click)="MudarPagina(i + 1)" id="generoEscolha">{{ i + 1 }}</a>
         </li>
 
         <li class="page-item">
-          <a class="page-link" aria-label="Next" (click)="nextPage()">
+          <a class="page-link" aria-label="Next" (click)="nextPage()" id="generoEscolha">
             <span aria-hidden="true">&raquo;</span>
           </a>
         </li>
@@ -40,9 +40,9 @@
 
 
 <div class="container mt-3">
-    <div class="row ">
-        <div *ngFor="let filme of filmes" class="col-6 col-md-4 col-lg-2">
-            <app-card-filme [filme]="filme"></app-card-filme>
+    <div class="row">
+        <div *ngFor="let filme of filmes" class="col-6 col-md-4 col-lg-2 hoverable">
+            <app-card-filme [filme]="filme" class="hover-zoom"></app-card-filme>
         </div>
     </div>
 </div>

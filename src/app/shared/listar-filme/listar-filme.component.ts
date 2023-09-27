@@ -47,7 +47,7 @@ export class ListarFilmeComponent implements OnInit {
 
   nextPage(){
     this.currentPage < 30 ? this.MudarPagina(this.currentPage + 1) : this.toaster.error("Nao foi possivel ir para proxima página");
-
+    this.toaster.success("Foi para prox pagina", "Sucesso")
   }
   SelecionarFilmesPorId(arrayId: number[]){
     this.filmes = [];

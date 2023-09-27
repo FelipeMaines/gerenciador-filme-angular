@@ -1,3 +1,7 @@
 #container-filmes {
     height: 100vh;
 }
+
+#generoEscolha {
+    cursor: pointer;
+}

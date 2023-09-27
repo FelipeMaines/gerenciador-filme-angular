@@ -21,8 +21,20 @@ export class ServicoFilme {
         return this.http.get<any>(`${this.API_URL}/${chave}?page=${pagina}`, ObterHeaderAutorizacao())
     }
 
-    MapearCreditos(res: any[]) {
-        return 
+    MapearCreditos(lista: any[], id: number): CreditosFilme[] {
+
+        if (!Array.isArray(lista)) {
+            return [];
+        }
+
+        return lista.map((ator: any): CreditosFilme => {
+            return {
+                character: ator.character,
+                name: ator.name,
+                profile_path: "https://image.tmdb.org/t/p/" + 'w200' + ator.profile_path,
+                filme_id: id
+            }
+        })
     }
 
     SelecioarPorId(id: number) {
@@ -31,6 +43,7 @@ export class ServicoFilme {
 
     MapeadorFilmes(lista: any[]) {
         return lista.map(res => this.MapearFilme(res))
+        
     }
 
     MapearFilme(obj: any): Filme {
@@ -58,7 +71,10 @@ export class ServicoFilme {
 
     PesquisarFilmes(nomeFilme: string){
         return this.http.get<any>(`https://api.themoviedb.org/3/search/movie?query=${nomeFilme}`, ObterHeaderAutorizacao())
-        
+    }
+
+    PegarCreditosFilme(id: number){
+        return this.http.get<any>(`${this.API_URL}/${id}/credits`, ObterHeaderAutorizacao())
     }
 }
 

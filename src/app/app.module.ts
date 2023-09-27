@@ -15,6 +15,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { BarraPesquisaFilmeComponent } from './shared/barra-pesquisa-filme/barra-pesquisa-filme.component';
 import { FormsModule } from '@angular/forms';
 import { ListarFilmesPesquisadosComponent } from './shared/listar-filmes-pesquisados/listar-filmes-pesquisados.component';
+import { CreditosFilmeComponent } from './shared/creditos-filme/creditos-filme.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { ListarFilmesPesquisadosComponent } from './shared/listar-filmes-pesquis
     SafeUrlPipe,
     BarraPesquisaFilmeComponent,
     ListarFilmesPesquisadosComponent,
+    CreditosFilmeComponent,
   ],
   imports: [
     BrowserModule,

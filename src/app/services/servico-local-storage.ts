@@ -13,14 +13,6 @@ export class ServicoLocalStorage {
     constructor(private servicoFilme: ServicoFilme) { }
 
     adicionarFilmeFavorito(id: number): any {
-
-        // this.servicoFilme.SelecioarPorId(id).subscribe(res => {
-        //     let filmeDetalhe:DetalhesFilme = this.servicoFilme.MapeadorDetlhesFilme(res);
-
-        //     filmeDetalhe.favorito ? 
-
-        // })
-
         const filmesFavoritos: number[] = this.PegarIdsDosFilmesFavoritos();
 
         if (filmesFavoritos.find(numero => numero == id))
@@ -45,5 +37,11 @@ export class ServicoLocalStorage {
             return JSON.parse(filmesFavoritosJSON);
         }
         return [];
+    }
+
+    PossuiFilme(id: number): boolean{
+        let favoritos: number[] = this.PegarIdsDosFilmesFavoritos();
+
+        return favoritos.includes(id);
     }
 }
