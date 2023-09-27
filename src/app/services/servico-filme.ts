@@ -18,7 +18,7 @@ export class ServicoFilme {
     constructor(private http: HttpClient) { }
 
     BuscarFilmes(chave: string, pagina: number) {
-        return this.http.get<any>(`${this.API_URL}/${chave}?page=${pagina}?language=pt-BR`, ObterHeaderAutorizacao())
+        return this.http.get<any>(`${this.API_URL}/${chave}?page=${pagina}`, ObterHeaderAutorizacao())
     }
 
     MapearCreditos(lista: any[], id: number): CreditosFilme[] {

@@ -34,10 +34,17 @@ export class ListarFilmeComponent implements OnInit {
   }
 
   MudarPagina(pagina: number){
+    console.log('pagina')
+    console.log(pagina)
+
     this.currentPage = pagina;
+
+    console.log("currentPage")
+    console.log(this.currentPage)
 
     this.servicoFilme.BuscarFilmes(this.genero, this.currentPage).subscribe(res => {
       this.filmes = this.servicoFilme.MapeadorFilmes(res.results);
+      console.log(this.filmes);
     })
   }
 
