@@ -17,6 +17,7 @@ const routes: Routes = [
   },
   {
     path: 'filme/listar',
+    // loadChildren: () => import('../app/shared/listar-filme/listar-filme.component').then(m => m.ListarFilmeComponent)
     component: ListarFilmeComponent
   },
   {
