@@ -30,9 +30,7 @@
             ],
             "scripts": []
           },
-          "engines": {
-            "node": ">=18 <19"
-          },
+          
           "configurations": {
             "production": {
               "budgets": [
