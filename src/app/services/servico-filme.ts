@@ -18,7 +18,7 @@ export class ServicoFilme {
     constructor(private http: HttpClient) { }
 
     BuscarFilmes(chave: string, pagina: number) {
-        return this.http.get<any>(`${this.API_URL}/${chave}?page=${pagina}`, ObterHeaderAutorizacao())
+        return this.http.get<any>(`${this.API_URL}/${chave}?page=${pagina}?language=pt-BR`, ObterHeaderAutorizacao())
     }
 
     MapearCreditos(lista: any[], id: number): CreditosFilme[] {
@@ -38,7 +38,7 @@ export class ServicoFilme {
     }
 
     SelecioarPorId(id: number) {
-        return this.http.get<any>(`${this.API_URL}/${id}`, ObterHeaderAutorizacao())
+        return this.http.get<any>(`${this.API_URL}/${id}?language=pt-BR`, ObterHeaderAutorizacao())
     }
 
     MapeadorFilmes(lista: any[]) {
@@ -66,15 +66,15 @@ export class ServicoFilme {
     }
 
     PegarKeyTrailerFilmePorId(id: number){
-        return this.http.get<any>(`https://api.themoviedb.org/3/movie/${id}/videos`, ObterHeaderAutorizacao())
+        return this.http.get<any>(`https://api.themoviedb.org/3/movie/${id}/videos?language=pt-BR`, ObterHeaderAutorizacao())
     }
 
     PesquisarFilmes(nomeFilme: string){
-        return this.http.get<any>(`https://api.themoviedb.org/3/search/movie?query=${nomeFilme}`, ObterHeaderAutorizacao())
+        return this.http.get<any>(`https://api.themoviedb.org/3/search/movie?query=${nomeFilme}?language=pt-BR`, ObterHeaderAutorizacao())
     }
 
     PegarCreditosFilme(id: number){
-        return this.http.get<any>(`${this.API_URL}/${id}/credits`, ObterHeaderAutorizacao())
+        return this.http.get<any>(`${this.API_URL}/${id}/credits?language=pt-BR`, ObterHeaderAutorizacao())
     }
 }
 
