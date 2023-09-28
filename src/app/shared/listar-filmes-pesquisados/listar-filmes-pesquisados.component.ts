@@ -26,6 +26,7 @@ constructor(private servicoFilme: ServicoFilme, private router: Router, private 
   pesquisarFilmes(){
     this.servicoFilme.PesquisarFilmes(this.queryPesquisa).subscribe(res => {
       this.filmesPesquisados = this.servicoFilme.MapeadorFilmes(res.results);
+      console.log(this.filmesPesquisados);
     });
   }
 }

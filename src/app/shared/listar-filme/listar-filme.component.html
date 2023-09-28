@@ -1,5 +1,5 @@
 <div class="container-fluid">
-  <div class="container d-flex flex-row justify-content-center  gap-5 my-3">
+  <div class="container d-flex flex-row justify-content-center gap-5 my-3">
     <a (click)="FiltrarFilme('popular')" class="link-offset-2 link-underline link-underline-opacity-0 fs-2 border-bottom border-secondary text-warning fw-bold cursor-pointer" id="generoEscolha">
         Mais Populares
     </a>
@@ -11,12 +11,15 @@
     <a (click)="FiltrarFilme('top_rated')" class="link-offset-2 link-underline link-underline-opacity-0 fs-2  border-bottom border-secondary text-warning fw-bold cursor-pointer" id="generoEscolha">
         Mais vistos
     </a>
-    <div class="d-flex align-items-center">
-      <app-barra-pesquisa-filme></app-barra-pesquisa-filme>
-    </div>
 </div>
 
-<div class="container w-100">
+<div class="container">
+  <div class="d-flex align-items-center justify-content-end p-3">
+    <app-barra-pesquisa-filme></app-barra-pesquisa-filme>
+  </div>
+</div>
+
+<div class="container w-100 d-flex align-items-center justify-content-center">
     <nav aria-label="Page navigation example">
       <ul class="pagination">
         <li class="page-item">
@@ -37,7 +40,6 @@
       </ul>
     </nav>
   </div>
-
 
 <div class="container mt-3">
     <div class="row">

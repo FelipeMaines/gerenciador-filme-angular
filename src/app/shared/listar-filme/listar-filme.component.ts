@@ -34,17 +34,10 @@ export class ListarFilmeComponent implements OnInit {
   }
 
   MudarPagina(pagina: number){
-    console.log('pagina')
-    console.log(pagina)
-
     this.currentPage = pagina;
-
-    console.log("currentPage")
-    console.log(this.currentPage)
 
     this.servicoFilme.BuscarFilmes(this.genero, this.currentPage).subscribe(res => {
       this.filmes = this.servicoFilme.MapeadorFilmes(res.results);
-      console.log(this.filmes);
     })
   }
 
@@ -72,7 +65,7 @@ export class ListarFilmeComponent implements OnInit {
   ngOnInit(): void {
     this.filmes = [];
 
-    for(let i=1;i<31;i++)
+    for(let i=1;i<=10;i++)
       this.totalPages.push(i);
 
     this.FiltrarFilme('popular');

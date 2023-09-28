@@ -70,7 +70,7 @@ export class ServicoFilme {
     }
 
     PesquisarFilmes(nomeFilme: string){
-        return this.http.get<any>(`https://api.themoviedb.org/3/search/movie?query=${nomeFilme}?language=pt-BR`, ObterHeaderAutorizacao())
+        return this.http.get<any>(`https://api.themoviedb.org/3/search/movie?query=${nomeFilme}`, ObterHeaderAutorizacao())
     }
 
     PegarCreditosFilme(id: number){
